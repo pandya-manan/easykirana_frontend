@@ -1,17 +1,3 @@
-<div class="main-content">
-    <div class="section-content section-content-p30">
-        <div class="container-fluid">
-            <!-- Keep .row outside the loop -->
-            <div class="row">
-                <div *ngFor="let tempProduct of products" class="col-md-3 col-sm-6">
-                    <div class="product-box">
-                        <img src="{{tempProduct.imageUrl}}" class="img-responsive">
-                        <h1>{{tempProduct.name}}</h1>
-                        <div class="price">{{tempProduct.unitPrice | currency: "INR"}}</div>
-                        <a href="#" class="primary-btn">Add to cart</a>
-                    </div>
-                </div> 
-            </div>
-        </div>
-    </div>
-</div>
+<p *ngFor="let tempProduct of products">
+    {{ tempProduct.name}}: {{ tempProduct.unitPrice | currency:'INR'}}
+</p>
