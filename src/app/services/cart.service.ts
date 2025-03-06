@@ -15,28 +15,18 @@ export class CartService {
   constructor() { }
 
   addToCart(theCartItem: CartItem) {
-
-    // check if we already have the item in our cart
-    let alreadyExistsInCart: boolean = false;
-    let existingCartItem: CartItem | undefined = undefined; // ✅ FIXED
+    let existingCartItem: CartItem | undefined = this.cartItems.find(tempCartItem => tempCartItem.id === theCartItem.id);
   
-    if (this.cartItems.length > 0) {
-      // find the item in the cart based on item id
-      existingCartItem = this.cartItems.find(tempCartItem => tempCartItem.id === theCartItem.id);
-  
-      // check if we found it
-      alreadyExistsInCart = (existingCartItem !== undefined);
-    }
-  
-    if (alreadyExistsInCart && existingCartItem) {
-      // increment the quantity
+    if (existingCartItem) {
+      // If the item exists, increment the quantity
       existingCartItem.quantity++;
     } else {
-      // just add the item to the array
+      // If not found, add a new item to the cart
+      theCartItem.quantity = 1; // Ensure quantity is initialized
       this.cartItems.push(theCartItem);
     }
   
-    // compute cart total price and total quantity
+    // Compute cart total price and quantity
     this.computeCartTotals();
   }
   
@@ -70,4 +60,30 @@ export class CartService {
     console.log(`totalPrice: ${totalPriceValue.toFixed(2)}, totalQuantity: ${totalQuantityValue}`);
     console.log('----');
   }
+
+  decrementQuantity(theCartItem: CartItem) {
+
+    theCartItem.quantity--;
+
+    if (theCartItem.quantity === 0) {
+      this.remove(theCartItem);
+    }
+    else {
+      this.computeCartTotals();
+    }
+  }
+
+  remove(theCartItem: CartItem) {
+
+    // get index of item in the array
+    const itemIndex = this.cartItems.findIndex( tempCartItem => tempCartItem.id === theCartItem.id );
+
+    // if found, remove the item from the array at the given index
+    if (itemIndex > -1) {
+      this.cartItems.splice(itemIndex, 1);
+
+      this.computeCartTotals();
+    }
+  }
+
 }

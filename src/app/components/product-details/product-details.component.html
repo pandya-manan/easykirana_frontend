@@ -4,8 +4,11 @@
         <img src="{{ product.imageUrl }}" class="detail-img">
 
         <h3>{{ product.name }}</h3>
-        <div class="price">{{ product.unitPrice | currency:'USD' }}</div>
-        <button (click)="addToCart()" class="btn btn-primary btn-sm">Add to cart</button>
+        <div class="price">{{ product.unitPrice | currency:'INR' }}</div>
+        <button (click)="addToCart()" class="btn btn-primary btn-sm">
+            <i class="fas fa-cart-plus"></i> Add to Cart
+        </button>
+        
 
         <hr>
         <h4>Description</h4>
