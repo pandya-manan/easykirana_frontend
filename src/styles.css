@@ -214,7 +214,7 @@ section{
 }
 
 .au-input-xl{
-    min-width:935px
+    min-width:500px
 }
 
 input.au-input.au-input-xl{
@@ -1411,4 +1411,32 @@ footer ul li{
         border:0;
         padding:8px 0
     }
+}
+
+/* Specifically targeting the "Back to Product List" link inside the cart page */
+.main-content .section-content .container-fluid > div:last-child > a[routerLink="/products"] {
+    display: inline-block;
+    padding: 10px 15px;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #ffffff;
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    border-radius: 8px;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    margin-top: 20px;
+}
+
+/* Hover Effect */
+.main-content .section-content .container-fluid > div:last-child > a[routerLink="/products"]:hover {
+    background: linear-gradient(135deg, #0056b3, #003d82);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Active (Click) Effect */
+.main-content .section-content .container-fluid > div:last-child > a[routerLink="/products"]:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
