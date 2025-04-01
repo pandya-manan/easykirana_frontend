@@ -1,0 +1,68 @@
+/* Background overlay */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Make sure the modal appears above other content */
+}
+
+/* Modal content */
+.modal-content {
+    background: #e3f2fd; /* Light blue background */
+    padding: 25px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    width: 90%;
+    font-family: 'Poppins', sans-serif; /* Modern font */
+    position: relative;
+}
+
+/* Modal header */
+.modal-header {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #0277bd; /* Darker blue */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Order tracking number styling */
+.modal-content p {
+    font-size: 16px;
+    color: #01579b; /* Slightly darker blue */
+    margin: 10px 0;
+}
+
+/* Style for the OK button */
+.modal-button {
+    background: #0277bd; /* Primary blue */
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    font-size: 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: background 0.3s ease-in-out;
+}
+
+.modal-button:hover {
+    background: #01579b; /* Darker on hover */
+}
+
+/* Icon styling */
+.modal-icon {
+    font-size: 50px;
+    color: #0288d1;
+    margin-bottom: 10px;
+}

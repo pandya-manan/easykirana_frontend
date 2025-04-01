@@ -1,7 +1,13 @@
+<app-confirmation-modal 
+  *ngIf="showModal"
+  [orderTrackingNumber]="orderTrackingNumber"
+  (confirmed)="onModalClose()">
+</app-confirmation-modal>
 <div class="main-content page-m">
     <div class="section-content section-content-p30">
         <div class="container-fluid">
-
+        <!-- Order Confirmation Message (Visible When Order is Placed) -->
+        
             <form [formGroup]="checkoutFormGroup" (ngSubmit)="onSubmit()">
 
                 <!-- customer form group -->
@@ -416,3 +422,8 @@
         </div>
     </div>
 </div>
+<app-confirmation-modal 
+  *ngIf="showModal"
+  [orderTrackingNumber]="orderTrackingNumber"
+  (confirmed)="onModalClose()">
+</app-confirmation-modal>

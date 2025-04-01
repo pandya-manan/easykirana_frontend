@@ -20,6 +20,10 @@ export class CheckoutComponent implements OnInit {
 
   checkoutFormGroup!: FormGroup;
 
+  
+  orderTrackingNumber: string | null = null;
+  showModal: boolean = false;
+
   totalPrice: number = 0;
   totalQuantity: number = 0;
   
@@ -32,6 +36,7 @@ export class CheckoutComponent implements OnInit {
   billingAddressStates: State[] = [];
   
   storage: Storage = sessionStorage;
+  orderConfirmationMessage: string;
   
   constructor(private formBuilder: FormBuilder,
               private luv2ShopFormService: EasyKiranaShopFormService,
@@ -193,6 +198,8 @@ if (userFullName) {
 
 
 
+
+
   onSubmit() {
     console.log("Handling the submit button");
 
@@ -246,20 +253,36 @@ if (userFullName) {
     purchase.orderItems = orderItems;
 
     // call REST API via the CheckoutService
-    this.checkoutService.placeOrder(purchase).subscribe({
+    // this.checkoutService.placeOrder(purchase).subscribe({
+    //     next: response => {
+    //       alert(`Your order has been received.\nOrder tracking number: ${response.orderTrackingNumber}`);
+
+    //       // reset cart
+    //       this.resetCart();
+
+    //     },
+    //     error: err => {
+    //       alert(`There was an error: ${err.message}`);
+    //     }
+    //   }
+    // );
+
+    
+      this.checkoutService.placeOrder(purchase).subscribe({
         next: response => {
-          alert(`Your order has been received.\nOrder tracking number: ${response.orderTrackingNumber}`);
-
-          // reset cart
-          this.resetCart();
-
+          this.orderTrackingNumber = response.orderTrackingNumber;
+          this.showModal = true;
         },
         error: err => {
-          alert(`There was an error: ${err.message}`);
+          alert(`There was an error: ${err.message}`); // You can replace this with a styled error modal too.
         }
-      }
-    );
-
+      });
+    
+  }
+  onModalClose() {
+    this.showModal = false;
+    this.resetCart();
+    this.router.navigate(['/products']); // Navigate after modal is closed
   }
 
   resetCart() {

@@ -22,6 +22,8 @@ import myAppConfig from './config/my-app-config';
 import { MembersPageComponent } from './components/members-page/members-page.component';
 import { OrderHistoryComponent } from './components/order-history/order-history.component';
 import { AuthInterceptorService } from './services/auth-interceptor.service';
+import { ConfirmationModalComponent } from './confirmation-modal/confirmation-modal.component';
+import { AboutUsComponent } from './about-us/about-us.component';
 const oktaConfig=myAppConfig.oidc;
 const oktaAuth=new OktaAuth(oktaConfig);
 function sendToLoginPage(oktaAuth: OktaAuth, injector: Injector) {
@@ -45,8 +47,10 @@ const routes: Routes = [
   {path: 'category/:id/:name', component: ProductListComponent},
   {path: 'category', component: ProductListComponent},
   {path: 'products', component: ProductListComponent},
+  {path: 'about-us',component:AboutUsComponent},
   {path: '', redirectTo: '/products', pathMatch: 'full'},
   {path: '**', redirectTo: '/products', pathMatch: 'full'}
+  
 ];
 @NgModule({
   declarations: [
@@ -61,7 +65,9 @@ const routes: Routes = [
     LoginComponent,
     LoginStatusComponent,
     MembersPageComponent,
-    OrderHistoryComponent
+    OrderHistoryComponent,
+    ConfirmationModalComponent,
+    AboutUsComponent
   ],
   imports: [
     BrowserModule,

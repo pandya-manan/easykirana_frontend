@@ -1,0 +1,18 @@
+<div class="modal-overlay">
+    <div class="modal-content">
+      <!-- Success Icon -->
+      <div class="modal-icon">✅</div> <!-- Unicode emoji for now -->
+      
+      <!-- Header -->
+      <div class="modal-header">Order Confirmed!</div>
+      
+      <!-- Order details -->
+      <p>Your order has been successfully placed.</p>
+      <p><strong>Tracking Number:</strong> {{ orderTrackingNumber }}</p>
+  
+      <!-- OK Button -->
+      <button class="modal-button" (click)="closeModal()">OK</button>
+    </div>
+  </div>
+  
+  
