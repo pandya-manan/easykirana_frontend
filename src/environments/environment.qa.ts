@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  easyKiranaApiUrl: "https://localhost:8443/api"
+  easyKiranaApiUrl: "https://localhost:9898/api"
 };
 
 

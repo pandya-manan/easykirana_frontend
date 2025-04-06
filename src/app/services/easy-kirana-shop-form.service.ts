@@ -4,14 +4,16 @@ import { HttpClient } from '@angular/common/http';
 import { Country } from '../common/country';
 import { map } from 'rxjs/operators';
 import { State } from '../common/state';
+import { environment } from 'src/environments/environment';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class EasyKiranaShopFormService {
 
-  private countriesUrl = 'http://localhost:8090/api/countries';
-  private statesUrl = 'http://localhost:8090/api/states';
+  private countriesUrl = environment.easyKiranaApiUrl+'/countries';
+  private statesUrl = environment.easyKiranaApiUrl+'/states';
 
   constructor(private httpClient: HttpClient) { }
 

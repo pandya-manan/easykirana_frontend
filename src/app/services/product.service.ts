@@ -4,15 +4,17 @@ import { Product } from '../common/product';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { ProductCategory } from '../common/product-category';
+import { environment } from 'src/environments/environment';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
 
-  private baseUrl = 'http://localhost:8090/api/products';
+  private baseUrl = environment.easyKiranaApiUrl+'/products';
 
-  private categoryUrl = 'http://localhost:8090/api/product-category';
+  private categoryUrl = environment.easyKiranaApiUrl+'/product-category';
 
   constructor(private httpClient: HttpClient) { }
 
@@ -31,7 +33,7 @@ export class ProductService {
     // need to build URL based on category id, page and size 
     const searchUrl = `${this.baseUrl}/search/findByCategoryId?id=${theCategoryId}`
                     + `&page=${thePage}&size=${thePageSize}`;
-
+    console.log(`Getting products from - ${searchUrl}`);
     return this.httpClient.get<GetResponseProducts>(searchUrl);
   }
 
