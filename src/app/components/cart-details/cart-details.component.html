@@ -13,7 +13,7 @@
 
                     <tr *ngFor="let tempCartItem of cartItems">
                         <td>
-                            <img src="{{ tempCartItem.imageUrl }}" class="img-responsive" width="150px" />
+                            <img [src]="'https://localhost:8088/' + tempCartItem.imageUrl" class="img-responsive" width="150px" />
                         </td>
                         <td>
                             <p>{{ tempCartItem.name }}</p>

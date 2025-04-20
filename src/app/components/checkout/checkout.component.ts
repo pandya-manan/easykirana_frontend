@@ -84,7 +84,7 @@ if (userFullName) {
                                    EasyKiranaValidators.notOnlyWhitespace]),
         state: new FormControl('', [Validators.required]),
         country: new FormControl('', [Validators.required]),
-        zipCode: new FormControl('', [Validators.required, Validators.minLength(2), 
+        zipCode: new FormControl('', [Validators.required, Validators.minLength(2),Validators.maxLength(6), 
                                       EasyKiranaValidators.notOnlyWhitespace])
       }),
       billingAddress: this.formBuilder.group({

@@ -26,6 +26,7 @@ export class LoginComponent implements OnInit {
     responseType: ['token', 'id_token'],
     scopes: ['openid', 'profile', 'email'],
     pkce: true,
+    prompt: 'login'
   },
   features: {
     multiOptionalFactorEnroll: true, // Allow MFA enrollment

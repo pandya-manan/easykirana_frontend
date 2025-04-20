@@ -5,6 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 import { CartItem } from 'src/app/common/cart-item';
 import { CartService } from 'src/app/services/cart.service';
 
+
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list-grid.component.html',
@@ -16,6 +17,8 @@ export class ProductListComponent implements OnInit {
   currentCategoryId: number = 1;
   previousCategoryId: number = 1;
   searchMode: boolean = false;
+  
+
 
   // new properties for pagination
   thePageNumber: number = 1;
@@ -34,6 +37,7 @@ export class ProductListComponent implements OnInit {
       this.listProducts();
     });
   }
+
 
   listProducts() {
 

@@ -8,9 +8,13 @@
 
                     <div class="product-box">
 
-                        <a routerLink="/products/{{ tempProduct.id }}">
+                        <!-- <a routerLink="/products/{{ tempProduct.id }}">
                             <img src="{{ tempProduct.imageUrl }}" class="img-responsive">
-                        </a>
+                        </a> -->
+                        <a routerLink="/products/{{ tempProduct.id }}">
+                            <img [src]="'https://localhost:8088/' + tempProduct.imageUrl" class="img-responsive">
+                          </a>
+                          
 
                         <a routerLink="/products/{{ tempProduct.id }}">
                             <h1>{{ tempProduct.name }}</h1>
