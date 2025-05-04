@@ -21,7 +21,9 @@
           <div class="header-wrap">
             <app-search></app-search>
             <app-login-status></app-login-status>
-            <app-signup></app-signup>
+            <!-- <app-signup></app-signup> -->
+            <app-signup *ngIf="!isAuthenticated"></app-signup>
+
             <app-cart-status></app-cart-status>
             
           </div>
